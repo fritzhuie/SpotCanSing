@@ -1,0 +1,345 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1FD037AC1C1BBCC9003A7AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD037AB1C1BBCC9003A7AD1 /* AppDelegate.swift */; };
+		1FD037AE1C1BBCC9003A7AD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD037AD1C1BBCC9003A7AD1 /* ViewController.swift */; };
+		1FD037B11C1BBCC9003A7AD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD037AF1C1BBCC9003A7AD1 /* Main.storyboard */; };
+		1FD037B31C1BBCC9003A7AD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD037B21C1BBCC9003A7AD1 /* Assets.xcassets */; };
+		1FD037B61C1BBCC9003A7AD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD037B41C1BBCC9003A7AD1 /* LaunchScreen.storyboard */; };
+		1FD037BE1C1BBD11003A7AD1 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD037BD1C1BBD11003A7AD1 /* MainScene.swift */; };
+		1FD037C91C1BBDB8003A7AD1 /* alan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FD037BF1C1BBDB8003A7AD1 /* alan.jpg */; };
+		1FD037CA1C1BBDB8003A7AD1 /* angela.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FD037C01C1BBDB8003A7AD1 /* angela.jpg */; };
+		1FD037CB1C1BBDB8003A7AD1 /* bryce.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FD037C11C1BBDB8003A7AD1 /* bryce.jpg */; };
+		1FD037CC1C1BBDB8003A7AD1 /* caro.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FD037C21C1BBDB8003A7AD1 /* caro.jpg */; };
+		1FD037CD1C1BBDB8003A7AD1 /* chris.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FD037C31C1BBDB8003A7AD1 /* chris.jpg */; };
+		1FD037CE1C1BBDB8003A7AD1 /* fritz.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FD037C41C1BBDB8003A7AD1 /* fritz.jpg */; };
+		1FD037CF1C1BBDB8003A7AD1 /* judy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FD037C51C1BBDB8003A7AD1 /* judy.jpg */; };
+		1FD037D01C1BBDB8003A7AD1 /* kristina.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FD037C61C1BBDB8003A7AD1 /* kristina.jpg */; };
+		1FD037D11C1BBDB8003A7AD1 /* lisa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FD037C71C1BBDB8003A7AD1 /* lisa.jpg */; };
+		1FD037D21C1BBDB8003A7AD1 /* peter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FD037C81C1BBDB8003A7AD1 /* peter.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1FD037A81C1BBCC9003A7AD1 /* SpotCanSing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotCanSing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FD037AB1C1BBCC9003A7AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1FD037AD1C1BBCC9003A7AD1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1FD037B01C1BBCC9003A7AD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1FD037B21C1BBCC9003A7AD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1FD037B51C1BBCC9003A7AD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1FD037B71C1BBCC9003A7AD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FD037BD1C1BBD11003A7AD1 /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
+		1FD037BF1C1BBDB8003A7AD1 /* alan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = alan.jpg; sourceTree = "<group>"; };
+		1FD037C01C1BBDB8003A7AD1 /* angela.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = angela.jpg; sourceTree = "<group>"; };
+		1FD037C11C1BBDB8003A7AD1 /* bryce.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bryce.jpg; sourceTree = "<group>"; };
+		1FD037C21C1BBDB8003A7AD1 /* caro.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = caro.jpg; sourceTree = "<group>"; };
+		1FD037C31C1BBDB8003A7AD1 /* chris.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chris.jpg; sourceTree = "<group>"; };
+		1FD037C41C1BBDB8003A7AD1 /* fritz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fritz.jpg; sourceTree = "<group>"; };
+		1FD037C51C1BBDB8003A7AD1 /* judy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = judy.jpg; sourceTree = "<group>"; };
+		1FD037C61C1BBDB8003A7AD1 /* kristina.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kristina.jpg; sourceTree = "<group>"; };
+		1FD037C71C1BBDB8003A7AD1 /* lisa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lisa.jpg; sourceTree = "<group>"; };
+		1FD037C81C1BBDB8003A7AD1 /* peter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = peter.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1FD037A51C1BBCC9003A7AD1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1FD0379F1C1BBCC9003A7AD1 = {
+			isa = PBXGroup;
+			children = (
+				1FD037AA1C1BBCC9003A7AD1 /* SpotCanSing */,
+				1FD037A91C1BBCC9003A7AD1 /* Products */,
+				1FD037D31C1BBDC1003A7AD1 /* Images */,
+			);
+			sourceTree = "<group>";
+		};
+		1FD037A91C1BBCC9003A7AD1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1FD037A81C1BBCC9003A7AD1 /* SpotCanSing.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1FD037AA1C1BBCC9003A7AD1 /* SpotCanSing */ = {
+			isa = PBXGroup;
+			children = (
+				1FD037AB1C1BBCC9003A7AD1 /* AppDelegate.swift */,
+				1FD037AD1C1BBCC9003A7AD1 /* ViewController.swift */,
+				1FD037BD1C1BBD11003A7AD1 /* MainScene.swift */,
+				1FD037AF1C1BBCC9003A7AD1 /* Main.storyboard */,
+				1FD037B21C1BBCC9003A7AD1 /* Assets.xcassets */,
+				1FD037B41C1BBCC9003A7AD1 /* LaunchScreen.storyboard */,
+				1FD037B71C1BBCC9003A7AD1 /* Info.plist */,
+			);
+			path = SpotCanSing;
+			sourceTree = "<group>";
+		};
+		1FD037D31C1BBDC1003A7AD1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1FD037BF1C1BBDB8003A7AD1 /* alan.jpg */,
+				1FD037C01C1BBDB8003A7AD1 /* angela.jpg */,
+				1FD037C11C1BBDB8003A7AD1 /* bryce.jpg */,
+				1FD037C21C1BBDB8003A7AD1 /* caro.jpg */,
+				1FD037C31C1BBDB8003A7AD1 /* chris.jpg */,
+				1FD037C41C1BBDB8003A7AD1 /* fritz.jpg */,
+				1FD037C51C1BBDB8003A7AD1 /* judy.jpg */,
+				1FD037C61C1BBDB8003A7AD1 /* kristina.jpg */,
+				1FD037C71C1BBDB8003A7AD1 /* lisa.jpg */,
+				1FD037C81C1BBDB8003A7AD1 /* peter.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1FD037A71C1BBCC9003A7AD1 /* SpotCanSing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FD037BA1C1BBCC9003A7AD1 /* Build configuration list for PBXNativeTarget "SpotCanSing" */;
+			buildPhases = (
+				1FD037A41C1BBCC9003A7AD1 /* Sources */,
+				1FD037A51C1BBCC9003A7AD1 /* Frameworks */,
+				1FD037A61C1BBCC9003A7AD1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpotCanSing;
+			productName = SpotCanSing;
+			productReference = 1FD037A81C1BBCC9003A7AD1 /* SpotCanSing.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1FD037A01C1BBCC9003A7AD1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Fritz;
+				TargetAttributes = {
+					1FD037A71C1BBCC9003A7AD1 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 1FD037A31C1BBCC9003A7AD1 /* Build configuration list for PBXProject "SpotCanSing" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1FD0379F1C1BBCC9003A7AD1;
+			productRefGroup = 1FD037A91C1BBCC9003A7AD1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1FD037A71C1BBCC9003A7AD1 /* SpotCanSing */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1FD037A61C1BBCC9003A7AD1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FD037D01C1BBDB8003A7AD1 /* kristina.jpg in Resources */,
+				1FD037D21C1BBDB8003A7AD1 /* peter.jpg in Resources */,
+				1FD037B61C1BBCC9003A7AD1 /* LaunchScreen.storyboard in Resources */,
+				1FD037CF1C1BBDB8003A7AD1 /* judy.jpg in Resources */,
+				1FD037CD1C1BBDB8003A7AD1 /* chris.jpg in Resources */,
+				1FD037D11C1BBDB8003A7AD1 /* lisa.jpg in Resources */,
+				1FD037CC1C1BBDB8003A7AD1 /* caro.jpg in Resources */,
+				1FD037B31C1BBCC9003A7AD1 /* Assets.xcassets in Resources */,
+				1FD037CA1C1BBDB8003A7AD1 /* angela.jpg in Resources */,
+				1FD037CE1C1BBDB8003A7AD1 /* fritz.jpg in Resources */,
+				1FD037B11C1BBCC9003A7AD1 /* Main.storyboard in Resources */,
+				1FD037C91C1BBDB8003A7AD1 /* alan.jpg in Resources */,
+				1FD037CB1C1BBDB8003A7AD1 /* bryce.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1FD037A41C1BBCC9003A7AD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FD037BE1C1BBD11003A7AD1 /* MainScene.swift in Sources */,
+				1FD037AE1C1BBCC9003A7AD1 /* ViewController.swift in Sources */,
+				1FD037AC1C1BBCC9003A7AD1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1FD037AF1C1BBCC9003A7AD1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FD037B01C1BBCC9003A7AD1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1FD037B41C1BBCC9003A7AD1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FD037B51C1BBCC9003A7AD1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1FD037B81C1BBCC9003A7AD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1FD037B91C1BBCC9003A7AD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1FD037BB1C1BBCC9003A7AD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SpotCanSing/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fritz.SpotCanSing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1FD037BC1C1BBCC9003A7AD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SpotCanSing/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fritz.SpotCanSing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1FD037A31C1BBCC9003A7AD1 /* Build configuration list for PBXProject "SpotCanSing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FD037B81C1BBCC9003A7AD1 /* Debug */,
+				1FD037B91C1BBCC9003A7AD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FD037BA1C1BBCC9003A7AD1 /* Build configuration list for PBXNativeTarget "SpotCanSing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FD037BB1C1BBCC9003A7AD1 /* Debug */,
+				1FD037BC1C1BBCC9003A7AD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1FD037A01C1BBCC9003A7AD1 /* Project object */;
+}
