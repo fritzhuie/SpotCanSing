@@ -11,9 +11,11 @@ import SpriteKit
 
 class MainScene: SKScene {
     
+    var frameCount = 0
     var members = ["alan":1, "angela":1, "bryce":1, "caro":1, "chris":1, "fritz":1, "judy":1, "kristina":1, "lisa":1, "peter":1]
     var availableMembers = 10
     var solos = [String:[String]]()
+    var required = [String:[String]]()
     var songs = [String]()
     
     let buttonsv = 5 //number of buttons per row
@@ -61,13 +63,11 @@ class MainScene: SKScene {
         
         var all = [String]()
         for song in solos.keys {
-            print(song)
             all.append(song)
         }
         
         for song in all {
             var include = true
-            print(song)
             for name in solos[song]! {
                 if (members[name] == 0) {
                     print("\(name) missing for \(song)")
@@ -76,22 +76,32 @@ class MainScene: SKScene {
             }
             if(include == true) {
                 songs.append(song)
-                print("\(song) added!")
             }
         }
         
+        // we can always do milkshake
+        if (availableMembers < 4) {
+            songs.removeAll()
+            songs.append(" ")
+            songs.append(" ")
+            songs.append(" ")
+            songs.append("Milkshake")
+        }
+        
         songListNode.removeAllChildren()
-        let spacing = CGFloat(12.0)
-        let initial = frame.maxY - (bsize * 2.0)
+        let initial = frame.maxY - (bsize * 2.0) - 50
+        var spacing = CGFloat(initial) / CGFloat(songs.count) - 0.5
+        spacing = spacing > 25.0 ? 25.0 : spacing
         var lineNumber = 0
-        print("SONG LIST: \(songs)")
+        print("Songs included \(songs.count)")
         for s in songs {
             lineNumber++
             let line = SKLabelNode(text: s)
             line.fontColor = SKColor.blackColor()
             line.fontSize = spacing - 2
-            line.position = CGPointMake(frame.midX, initial - 50 - (CGFloat(lineNumber) * spacing))
+            line.position = CGPointMake(frame.midX, initial - (CGFloat(lineNumber) * spacing))
             songListNode.addChild(line)
+            songListNode.alpha = 0.0
         }
     }
     
@@ -124,9 +134,12 @@ class MainScene: SKScene {
             }
             for i in members.keys {
                 if(node.name == i){
+                    let count = availableMembers
                     toggle(node)
+                    if (count != availableMembers){
+                        updateSongList()
+                    }
                 }
-                updateSongList()
             }
         }
     }
@@ -147,7 +160,7 @@ class MainScene: SKScene {
         solos["Keep Breathing"] = ["judy"]
         solos["King of Spain"] = ["lisa"]
         solos["Kraken"] = [""]
-        solos["La Grippe"] = ["fritz", "chris"]
+        solos["La Grippe"] = ["fritz", "chris", "caro"]
         solos["Let's Get It Started"] = ["fritz", "alan", "angela"]
         solos["Milkshake Madrigal"] = [""]
         solos["Money"] = ["alan", "bryce"]
@@ -169,14 +182,17 @@ class MainScene: SKScene {
         solos["Sweet Caroline"] = ["lisa"]
         solos["Warning Sign"] = ["fritz"]
         
+        
+        
         print("song count: \(solos.keys.count)")
-        print("songs: \(solos.keys)")
-        
-//        for song in solos.keys {
-//            print(song)
-//            songs.append(song)
-//        }
-        print(songs)
-        
     }
+    
+     override func update(currentTime: CFTimeInterval) {
+        if (songListNode.alpha < 99.0) {
+            var a = songListNode.alpha
+            a = a + 0.07
+            songListNode.alpha = a > 100.0 ? 100.0 : a
+        }
+    }
+    
 }
