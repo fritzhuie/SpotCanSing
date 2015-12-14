@@ -12,12 +12,14 @@ import SpriteKit
 class MainScene: SKScene {
     
     var frameCount = 0
-    var members = ["alan":1, "angela":1, "bryce":1, "caro":1, "chris":1, "fritz":1, "judy":1, "kristina":1, "lisa":1, "peter":1]
+    var members = ["alan":true, "angela":true, "bryce":true, "caro":true, "chris":true, "fritz":true, "judy":true, "kristina":true, "lisa":true, "peter":true]
+    
+    var angela = "angela", alan = "alan", bryce = "bryce", caro = "caro", chris = "chris"
+    var fritz = "fritz", judy = "judy", kristina = "kristina", lisa = "lisa", peter = "peter"
     var availableMembers = 10
     var solos = [String:[String]]()
-    var required = [String:[String]]()
-    var songs = [String]()
-    
+    var requiredParts = [String:[String:[String]]]()
+    var songlistthatneedstoberenamed = [String]()
     let buttonsv = 5 //number of buttons per row
     var bsize = CGFloat()
     let rootNode = SKNode()
@@ -35,10 +37,12 @@ class MainScene: SKScene {
             attendees.append(name)
         }
         
-        print(attendees)
+        //print(attendees)
         
         generateSongList()
+        
         updateSongList()
+        print(availableSongs())
     }
     
     func makeButtons() {
@@ -57,9 +61,45 @@ class MainScene: SKScene {
         }
     }
     
+    func availableSongs ()->[String] {
+        
+        //under contruction
+        
+        var singable = [String]()
+        
+        for song in requiredParts.keys {
+            
+            var songHasAllParts = true
+            
+            var availableMembers = [String:Bool]()
+            for name in members.keys{availableMembers[name] = members[name]}
+            
+            var numberOfPartsRemaining = requiredParts[song]!.keys.count
+            
+            for parts in requiredParts[song]!.keys {
+                var partCovered = false
+                for person in requiredParts[song]![parts]! {
+                    //iterate over every person in the song parts
+                    if (members[person] == true) {
+                        //check if that part has a person
+                        partCovered = true
+                    }
+                }
+                if (partCovered) {
+                    numberOfPartsRemaining--
+                }
+            }
+            if (numberOfPartsRemaining == 0) {
+                singable.append(song)
+            }
+        }
+        return singable
+    }
+    
+
     func updateSongList () {
         
-        songs.removeAll()
+        songlistthatneedstoberenamed.removeAll()
         
         var all = [String]()
         for song in solos.keys {
@@ -69,32 +109,23 @@ class MainScene: SKScene {
         for song in all {
             var include = true
             for name in solos[song]! {
-                if (members[name] == 0) {
-                    print("\(name) missing for \(song)")
+                if (members[name] == false) {
+                    //print("\(name) missing for \(song)")
                     include = false
                 }
             }
             if(include == true) {
-                songs.append(song)
+                songlistthatneedstoberenamed.append(song)
             }
-        }
-        
-        // we can always do milkshake
-        if (availableMembers < 4) {
-            songs.removeAll()
-            songs.append(" ")
-            songs.append(" ")
-            songs.append(" ")
-            songs.append("Milkshake")
         }
         
         songListNode.removeAllChildren()
         let initial = frame.maxY - (bsize * 2.0) - 50
-        var spacing = CGFloat(initial) / CGFloat(songs.count) - 0.5
+        var spacing = CGFloat(initial) / CGFloat(songlistthatneedstoberenamed.count) - 0.5
         spacing = spacing > 25.0 ? 25.0 : spacing
         var lineNumber = 0
-        print("Songs included \(songs.count)")
-        for s in songs {
+        //print("Songs included \(songlistthatneedstoberenamed.count)")
+        for s in songlistthatneedstoberenamed {
             lineNumber++
             let line = SKLabelNode(text: s)
             line.fontColor = SKColor.blackColor()
@@ -103,21 +134,23 @@ class MainScene: SKScene {
             songListNode.addChild(line)
             songListNode.alpha = 0.0
         }
+        
+        print(availableSongs())
     }
     
     func toggle (node: SKNode) {
         
         let member = node.name! as String
         
-        if (members[member]! > 0) {
+        if (members[member]! == true) {
             if (availableMembers < 4) {
                 return
             }
-            members[member]! = 0
+            members[member]! = false
             node.alpha = 0.4
             availableMembers--
         }else{
-            members[member]! = 1
+            members[member]! = true
             node.alpha = 1.0
             availableMembers++
         }
@@ -145,6 +178,9 @@ class MainScene: SKScene {
     }
     
     func generateSongList () {
+        
+        requiredParts["Always"] = [ "tenor": ["chris", "alan"], "alto": ["judy", "caro"], "bass": ["alan", "peter", "bryce"], "soprano":["angela", "kristina", "lisa"], "solo":["fritz"]]
+        
         solos["Always"] = ["fritz"]
         solos["Angel Without Wings"] = ["chris"]
         solos["Book of Love"] = ["bryce"]
@@ -181,10 +217,6 @@ class MainScene: SKScene {
         solos["Stockholm Syndrom"] = ["judy"]
         solos["Sweet Caroline"] = ["lisa"]
         solos["Warning Sign"] = ["fritz"]
-        
-        
-        
-        print("song count: \(solos.keys.count)")
     }
     
      override func update(currentTime: CFTimeInterval) {
