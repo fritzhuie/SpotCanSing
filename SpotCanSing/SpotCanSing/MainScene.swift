@@ -12,76 +12,71 @@ import SpriteKit
 class MainScene: SKScene {
     
     var frameCount = 0
-    var members = ["alan":true, "angela":true, "bryce":true, "caro":true, "chris":true, "fritz":true, "judy":true, "kristina":true, "lisa":true, "peter":true]
+    var members = [String:Bool]()
     
-    var angela = "angela", alan = "alan", bryce = "bryce", caro = "caro", chris = "chris"
-    var fritz = "fritz", judy = "judy", kristina = "kristina", lisa = "lisa", peter = "peter"
     var availableMembers = 10
     var solos = [String:[String]]()
     var requiredParts = [String:[String:[String]]]()
-    var songlistthatneedstoberenamed = [String]()
+    var songsWeCanSing = [String]()
     let buttonsv = 5 //number of buttons per row
-    var bsize = CGFloat()
+    var buttonSize = CGFloat()
     let rootNode = SKNode()
     let songListNode = SKNode()
 
     override func didMoveToView(view: SKView) {
+        
         backgroundColor = SKColor.whiteColor()
-        bsize = self.frame.size.width/CGFloat(buttonsv)
+        buttonSize = self.frame.size.width/CGFloat(buttonsv)
+        members = [alan:true, angela:true, bryce:true, caro:true, chris:true, fritz:true, judy:true, kristina:true, lisa:true, peter:true]
+        
         addChild(rootNode)
         rootNode.addChild(songListNode)
+        
         makeButtons()
-        var attendees = [String]()
-        
-        for name in members.keys {
-            attendees.append(name)
-        }
-        
-        //print(attendees)
-        
         generateSongList()
-        
         updateSongList()
-        print(availableSongs())
     }
     
     func makeButtons() {
         var buttonPosition = 0
         
-        for name in members.keys {
+        for name in members.keys.sort() {
             let newButton = SKSpriteNode(imageNamed: "\(name).jpg")
             
-            if (buttonPosition < 5) {newButton.position = CGPointMake(CGFloat(buttonPosition) * bsize + bsize/2.0, self.frame.maxY - bsize)}
-            else{newButton.position = CGPointMake(CGFloat(buttonPosition - 5) * bsize + bsize/2.0, self.frame.maxY - (bsize * 2))}
+            if (buttonPosition < 5) {newButton.position = CGPointMake(CGFloat(buttonPosition) * buttonSize + buttonSize/2.0, self.frame.maxY - buttonSize)}
+            else{newButton.position = CGPointMake(CGFloat(buttonPosition - 5) * buttonSize + buttonSize/2.0, self.frame.maxY - (buttonSize * 2))}
             
             newButton.name = name
-            newButton.size = CGSizeMake(bsize, bsize)
+            newButton.size = CGSizeMake(buttonSize, buttonSize)
             rootNode.addChild(newButton)
             buttonPosition++
         }
     }
     
     func availableSongs ()->[String] {
-        
-        //under contruction
+        //return an array of song names that have all parts covered
         
         var singable = [String]()
         
+        if (availableMembers == 10) {
+            for song in requiredParts.keys {
+                singable.append(song)
+            }
+            return singable
+        }
+        
         for song in requiredParts.keys {
             
-            var songHasAllParts = true
-            
             var availableMembers = [String:Bool]()
-            for name in members.keys{availableMembers[name] = members[name]}
-            
             var numberOfPartsRemaining = requiredParts[song]!.keys.count
+            for name in members.keys{availableMembers[name] = members[name]}
             
             for parts in requiredParts[song]!.keys {
                 var partCovered = false
                 for person in requiredParts[song]![parts]! {
                     //iterate over every person in the song parts
                     if (members[person] == true) {
-                        //check if that part has a person
+                        //check if that part has any people covering it
                         partCovered = true
                     }
                 }
@@ -99,43 +94,25 @@ class MainScene: SKScene {
 
     func updateSongList () {
         
-        songlistthatneedstoberenamed.removeAll()
-        
-        var all = [String]()
-        for song in solos.keys {
-            all.append(song)
-        }
-        
-        for song in all {
-            var include = true
-            for name in solos[song]! {
-                if (members[name] == false) {
-                    //print("\(name) missing for \(song)")
-                    include = false
-                }
-            }
-            if(include == true) {
-                songlistthatneedstoberenamed.append(song)
-            }
-        }
+        songsWeCanSing.removeAll()
+        for song in availableSongs() {songsWeCanSing.append(song)}
+        songsWeCanSing.sortInPlace()
         
         songListNode.removeAllChildren()
-        let initial = frame.maxY - (bsize * 2.0) - 50
-        var spacing = CGFloat(initial) / CGFloat(songlistthatneedstoberenamed.count) - 0.5
+        let initial = frame.maxY - (buttonSize * 2.0) - 50
+        var spacing = CGFloat(initial) / CGFloat(songsWeCanSing.count) - 0.5
         spacing = spacing > 25.0 ? 25.0 : spacing
         var lineNumber = 0
-        //print("Songs included \(songlistthatneedstoberenamed.count)")
-        for s in songlistthatneedstoberenamed {
+
+        for s in songsWeCanSing {
             lineNumber++
             let line = SKLabelNode(text: s)
             line.fontColor = SKColor.blackColor()
             line.fontSize = spacing - 2
-            line.position = CGPointMake(frame.midX, initial - (CGFloat(lineNumber) * spacing))
+            line.position = CGPointMake(frame.midX + (CGFloat(random()%800 - 400)), initial - (CGFloat(lineNumber) * spacing))
             songListNode.addChild(line)
             songListNode.alpha = 0.0
         }
-        
-        print(availableSongs())
     }
     
     func toggle (node: SKNode) {
@@ -143,9 +120,6 @@ class MainScene: SKScene {
         let member = node.name! as String
         
         if (members[member]! == true) {
-            if (availableMembers < 4) {
-                return
-            }
             members[member]! = false
             node.alpha = 0.4
             availableMembers--
@@ -177,54 +151,65 @@ class MainScene: SKScene {
         }
     }
     
-    func generateSongList () {
-        
-        requiredParts["Always"] = [ "tenor": ["chris", "alan"], "alto": ["judy", "caro"], "bass": ["alan", "peter", "bryce"], "soprano":["angela", "kristina", "lisa"], "solo":["fritz"]]
-        
-        solos["Always"] = ["fritz"]
-        solos["Angel Without Wings"] = ["chris"]
-        solos["Book of Love"] = ["bryce"]
-        solos["Breathe"] = ["lisa"]
-        solos["Can't Illuminate"] = ["kristina"]
-        solos["Climbing Out Whole"] = ["judy", "angela", "caro"]
-        solos["Feelin' Good"] = ["chris", "bryce"]
-        solos["House by the Sea"] = ["fritz", "caro"]
-        solos["Hymn of Axciom"] = ["judy"]
-        solos["Intergalactic"] = ["bryce", "lisa", "alan"]
-        solos["Istanbul"] = ["fritz", "alan"]
-        solos["Jesu, Annoying Chris's Desiring"] = [""]
-        solos["Keep Breathing"] = ["judy"]
-        solos["King of Spain"] = ["lisa"]
-        solos["Kraken"] = [""]
-        solos["La Grippe"] = ["fritz", "chris", "caro"]
-        solos["Let's Get It Started"] = ["fritz", "alan", "angela"]
-        solos["Milkshake Madrigal"] = [""]
-        solos["Money"] = ["alan", "bryce"]
-        solos["Monster"] = ["angela"]
-        solos["My Baby Loves a Bunch of Authors"] = ["lisa"]
-        solos["Favorite Things"] = ["bryce"]
-        solos["One Love"] = ["caro"]
-        solos["Psychic"] = ["peter"]
-        solos["Rainbow Connection"] = ["kristina", "angela", "chris"]
-        solos["Russian Unicorn"] = ["fritz", "alan"]
-        solos["Sail"] = ["angela"]
-        solos["Say Goodbye"] = ["angela", "caro"]
-        solos["She's Already Gone"] = ["caro"]
-        solos["Show Me Your Patronus"] = ["caro"]
-        solos["Sorry"] = ["lisa"]
-        solos["Squirrel Samba"] = [""]
-        solos["Star Phoenix Plum Jam"] = [""]
-        solos["Stockholm Syndrom"] = ["judy"]
-        solos["Sweet Caroline"] = ["lisa"]
-        solos["Warning Sign"] = ["fritz"]
-    }
-    
-     override func update(currentTime: CFTimeInterval) {
+    override func update(currentTime: CFTimeInterval) {
         if (songListNode.alpha < 99.0) {
             var a = songListNode.alpha
             a = a + 0.07
             songListNode.alpha = a > 100.0 ? 100.0 : a
+            
+            for node in songListNode.children {
+                if (abs(node.position.x - frame.midX) > 5.0) {
+                    node.position.x = frame.midX + (node.position.x - frame.midX)/1.2
+                    node.position.x = node.position.x + (node.position.x > frame.midX ? -5.0 : 5.0)
+                }else{
+                    node.position.x = frame.midX
+                }
+            }
         }
     }
     
+    func generateSongList () {
+        
+        requiredParts["Always"] = [ "tenor": [chris, alan], "alto": [judy, caro], "bass": [alan, peter, bryce], "soprano":[angela, kristina, lisa], "solo":[fritz]]
+        
+        //songs below have no parts assigned
+        
+        requiredParts["Angel Without Wings"] = ["solo":[chris]]
+        requiredParts["Book of Love"] = ["solo":[bryce]]
+        requiredParts["Breathe"] = ["solo":[lisa]]
+        requiredParts["Can't Illuminate"] = ["solo":[kristina]]
+        requiredParts["Climbing Out Whole"] = ["solo":[judy, angela, caro]]
+        requiredParts["Feelin' Good"] = ["solo":[chris, bryce]]
+        requiredParts["House by the Sea"] = ["solo":[fritz, caro]]
+        requiredParts["Hymn of Axciom"] = ["solo":[judy]]
+        requiredParts["Intergalactic"] = ["solo":[bryce, lisa, alan]]
+        requiredParts["Istanbul"] = ["solo":[fritz, alan]]
+        requiredParts["Jesu, Annoying Chris's Desiring"] = ["solo":[""]]
+        requiredParts["Keep Breathing"] = ["solo":[judy]]
+        requiredParts["King of Spain"] = ["solo":[lisa]]
+        requiredParts["Kraken"] = ["solo":[""]]
+        requiredParts["La Grippe"] = ["solo":[fritz, chris, caro]]
+        requiredParts["Let's Get It Started"] = ["solo":[fritz, alan, angela]]
+        requiredParts["Milkshake Madrigal"] = ["solo":[""]]
+        requiredParts["Money"] = ["solo":[alan, bryce]]
+        requiredParts["Monster"] = ["solo":[angela]]
+        requiredParts["My Baby Loves a Bunch of Authors"] = ["solo":[lisa]]
+        requiredParts["Favorite Things"] = ["solo":[bryce]]
+        requiredParts["One Love"] = ["solo":[caro]]
+        requiredParts["Psychic"] = ["solo":[peter]]
+        requiredParts["Rainbow Connection"] = ["solo":[kristina, angela, chris]]
+        requiredParts["Russian Unicorn"] = ["solo":[fritz, alan]]
+        requiredParts["Sail"] = ["solo":[angela]]
+        requiredParts["Say Goodbye"] = ["solo":[angela, caro]]
+        requiredParts["She's Already Gone"] = ["solo":[caro]]
+        requiredParts["Show Me Your Patronus"] = ["solo":[caro]]
+        requiredParts["Sorry"] = ["solo":[lisa]]
+        requiredParts["Squirrel Samba"] = ["solo":[""]]
+        requiredParts["Star Phoenix Plum Jam"] = ["solo":[""]]
+        requiredParts["Stockholm Syndrom"] = ["solo":[judy]]
+        requiredParts["Sweet Caroline"] = ["solo":[lisa]]
+        requiredParts["Warning Sign"] = ["solo":[fritz]]
+    }
+    
+    let angela = "angela", alan = "alan", bryce = "bryce", caro = "caro", chris = "chris", fritz = "fritz", judy = "judy", kristina = "kristina", lisa = "lisa", peter = "peter"
 }
