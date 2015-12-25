@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F3305E51C2D1E7D00E78058 /* Songlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3305E41C2D1E7D00E78058 /* Songlist.swift */; };
 		1FD037AC1C1BBCC9003A7AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD037AB1C1BBCC9003A7AD1 /* AppDelegate.swift */; };
 		1FD037AE1C1BBCC9003A7AD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD037AD1C1BBCC9003A7AD1 /* ViewController.swift */; };
 		1FD037B11C1BBCC9003A7AD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD037AF1C1BBCC9003A7AD1 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F3305E41C2D1E7D00E78058 /* Songlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Songlist.swift; sourceTree = "<group>"; };
 		1FD037A81C1BBCC9003A7AD1 /* SpotCanSing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotCanSing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FD037AB1C1BBCC9003A7AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FD037AD1C1BBCC9003A7AD1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				1FD037AB1C1BBCC9003A7AD1 /* AppDelegate.swift */,
 				1FD037AD1C1BBCC9003A7AD1 /* ViewController.swift */,
 				1FD037BD1C1BBD11003A7AD1 /* MainScene.swift */,
+				1F3305E41C2D1E7D00E78058 /* Songlist.swift */,
 				1FD037AF1C1BBCC9003A7AD1 /* Main.storyboard */,
 				1FD037B21C1BBCC9003A7AD1 /* Assets.xcassets */,
 				1FD037B41C1BBCC9003A7AD1 /* LaunchScreen.storyboard */,
@@ -186,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F3305E51C2D1E7D00E78058 /* Songlist.swift in Sources */,
 				1FD037BE1C1BBD11003A7AD1 /* MainScene.swift in Sources */,
 				1FD037AE1C1BBCC9003A7AD1 /* ViewController.swift in Sources */,
 				1FD037AC1C1BBCC9003A7AD1 /* AppDelegate.swift in Sources */,
@@ -338,6 +342,7 @@
 				1FD037BC1C1BBCC9003A7AD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
