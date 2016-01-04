@@ -10,6 +10,7 @@ import UIKit
 import SpriteKit
 
 var requiredParts = [String:[String:[String]]]()
+var preferredParts = [String:[String:[String]]]()
 
 class MainScene: SKScene {
     
